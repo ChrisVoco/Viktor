@@ -1,24 +1,20 @@
 import random
 
-kysimused = [ # muuda seda
-    ("Mis planeet on Päikesele kõige lähemal? ", "Merkuur"),
-    ("Mitu mandrit on Maal? ", "7"),
-    ("Mis on vee keemistemperatuur (°C)? ", "100"),
-    ("Mis värvi on smaragd? ", "Roheline"),
-    ("Mis on Eesti pealinn? ", "Tallinn"),
-    ("Kui palju on inimesel tavaliselt sõrmi? ", "10"),
-    ("Mis loom on maailma suurim imetaja? ", "Sinivaal"),
-    ("Mis keeles räägitakse Hispaanias? ", "Hispaania"),
-    ("Mitu nädalat on aastas? ", "52"),
-    ("Mis on keemiline sümbol hapnikule? ", "O"),
-    ("Mis on maailma kõrgeim mägi? ", "Everest"),
-    ("Mis on inimese normaalse kehatemperatuuri keskmine (°C)? ", "37"),
-    ("Kui mitu külge on kolmnurgal? ", "3"),
-    ("Mis värvi on banaan, kui ta on küps? ", "Kollane"),
-    ("Mis loom teeb „mjäu“? ", "Kass")
-]
+# Loo tühi list ja set unikaalsuse jaoks
+kysimused = []
+seen = set()
 
+# Loe failiread
+with open("fail.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        line = line.strip()  # eemalda tühikud ja \n
+        if not line:
+            continue  # tühja rea puhul jätka
 
+        # Muuda rida tegelikuks tupliks
+        tup = eval(line)  
+
+        kysimused.append(tup)
 
 
 def quiz(): #lisa juurde
