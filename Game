@@ -1,0 +1,53 @@
+import random
+
+kysimused = [ # muuda seda
+    ("Mis planeet on Päikesele kõige lähemal? ", "Merkuur"),
+    ("Mitu mandrit on Maal? ", "7"),
+    ("Mis on vee keemistemperatuur (°C)? ", "100"),
+    ("Mis värvi on smaragd? ", "Roheline"),
+    ("Mis on Eesti pealinn? ", "Tallinn"),
+    ("Kui palju on inimesel tavaliselt sõrmi? ", "10"),
+    ("Mis loom on maailma suurim imetaja? ", "Sinivaal"),
+    ("Mis keeles räägitakse Hispaanias? ", "Hispaania"),
+    ("Mitu nädalat on aastas? ", "52"),
+    ("Mis on keemiline sümbol hapnikule? ", "O"),
+    ("Mis on maailma kõrgeim mägi? ", "Everest"),
+    ("Mis on inimese normaalse kehatemperatuuri keskmine (°C)? ", "37"),
+    ("Kui mitu külge on kolmnurgal? ", "3"),
+    ("Mis värvi on banaan, kui ta on küps? ", "Kollane"),
+    ("Mis loom teeb „mjäu“? ", "Kass")
+]
+
+
+
+
+def quiz(): #lisa juurde
+    Health = 100
+    score = 0
+
+    max_punkte = len(kysimused)
+
+    random.shuffle(kysimused)
+
+    for kysimus, Õige_vastus in kysimused:
+        Kasutaja_vastus = input(str(kysimus))
+
+        if Kasutaja_vastus.strip().lower() == Õige_vastus.lower():
+            print('Õige Vastus!', "(", Õige_vastus, ")")
+            score += 1
+        else:
+            print("Vale Vastus! Õige Vastus Oli: ", "(", Õige_vastus, ")")
+            Health -= 25
+
+        print(f"Hetke skoor: {score}, Hetke tervis: {Health}%\n")
+
+        if Health <= 0:
+            break
+    
+    # lõpptulemus
+    if Health > 0:
+        print(f"Quiz on lõppenud! Sinu lõpp-skoor on {score}/{max_punkte} ja tervis {Health}%.")
+    else:
+        print(f"Quiz lõppes enneaegselt tänu su surmale. Sinu lõpp-skoor oli {score}/{max_punkte}.")
+
+quiz()
