@@ -1,7 +1,7 @@
 # Viktor
 
 Viktor on lihtne tekstipõhine viktoriinimäng Pythonis.  
-Hetkel on mäng CLI (command-line interface) põhine, kuid tulevikus on plaanis lisada GUI.
+Hetkel on mäng CLI (command-line interface) põhine.
 
 ## Kuidas mängida
 
