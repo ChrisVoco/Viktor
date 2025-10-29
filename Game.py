@@ -26,6 +26,8 @@ def quiz():
 
     Mängja = input("Siseta mängja nimi: ")
 
+    print("\n")
+
     max_punkte = len(kysimused) # vaatab palju küsimuse on
 
     random.shuffle(kysimused) # segab küsimused
