@@ -1,3 +1,4 @@
+from jaro import jaro_winkler_metric
 from easygui import *
 import random
 import json
@@ -34,8 +35,14 @@ def quiz():
 
     for kysimus, Õige_vastus in kysimused: 
         Kasutaja_vastus = enterbox(str(kysimus)) # saad vasdata küsimusele
+        
+        tulemus = jaro_winkler_metric(Õige_vastus.lower(), Kasutaja_vastus.lower())
+        
+        if tulemus >= 0.95:   # kui vastus on vähemalt 90% sarnane
+            print(f"Õige Vastus{Õige_vastus}")
+            score += 1
 
-        if Kasutaja_vastus.strip().lower() == Õige_vastus.lower(): # kontrollib kas vastus on õige või mitte
+        elif Kasutaja_vastus.strip().lower() == Õige_vastus.lower():
             print('Õige Vastus!', "(", Õige_vastus, ")")
             score += 1
         else:
