@@ -1,7 +1,7 @@
+from easygui import *
 import random
 import json
 import os
-
 
 # Loo tühi list ja set unikaalsuse jaoks
 kysimused = []
@@ -24,7 +24,7 @@ def quiz():
     Health = 100 # palju elusi on
     score = 0 # algne skoor
 
-    Mängja = input("Siseta mängja nimi: ")
+    Mängja = enterbox("Siseta mängja nimi: ")
 
     print("\n")
 
@@ -33,7 +33,7 @@ def quiz():
     random.shuffle(kysimused) # segab küsimused
 
     for kysimus, Õige_vastus in kysimused: 
-        Kasutaja_vastus = input(str(kysimus)) # saad vasdata küsimusele
+        Kasutaja_vastus = enterbox(str(kysimus)) # saad vasdata küsimusele
 
         if Kasutaja_vastus.strip().lower() == Õige_vastus.lower(): # kontrollib kas vastus on õige või mitte
             print('Õige Vastus!', "(", Õige_vastus, ")")
@@ -49,9 +49,9 @@ def quiz():
     
     # lõpptulemus
     if Health > 0:
-        print(f"Quiz on lõppenud! Sinu lõpp-skoor on {score}/{max_punkte} ja tervis {Health}%.\n") # väljastab skoori/max skoorist ja elude %
+        msgbox(f"Quiz on lõppenud! Sinu lõpp-skoor on {score}/{max_punkte} ja tervis {Health}%.\n", "Lõpp") # väljastab skoori/max skoorist ja elude %
     else:
-        print(f"Quiz lõppes enneaegselt tänu su surmale. Sinu lõpp-skoor oli {score}/{max_punkte}.\n") # väljastab Skoori/max skoorist ainult, siis kui surid enneaegselt
+        msgbox(f"Quiz lõppes enneaegselt tänu su surmale. Sinu lõpp-skoor oli {score}/{max_punkte}.\n", "Lõpp") # väljastab Skoori/max skoorist ainult, siis kui surid enneaegselt
 
     filename = "data.json"
 
