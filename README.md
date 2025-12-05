@@ -13,7 +13,6 @@ python -m pip install jaro-winkler
 python -m pip install easygui
 
 3. Kloneeri repo:
-```bash
 git clone https://github.com/ChrisVoco/Viktor.git
 cd Viktor
 python Game.py
