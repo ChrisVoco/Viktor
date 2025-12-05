@@ -39,14 +39,14 @@ def quiz():
         tulemus = jaro_winkler_metric(Õige_vastus.lower(), Kasutaja_vastus.lower())
         
         if tulemus >= 0.95:   # kui vastus on vähemalt 90% sarnane
-            print(f"Õige Vastus{Õige_vastus}")
+            print(f"Õige Vastus!, ({Õige_vastus})")
             score += 1
 
         elif Kasutaja_vastus.strip().lower() == Õige_vastus.lower():
-            print('Õige Vastus!', "(", Õige_vastus, ")")
+            print(f"Õige Vastus!, {Õige_vastus})")
             score += 1
         else:
-            print("Vale Vastus! Õige Vastus Oli: ", "(", Õige_vastus, ")")
+            print(f"Vale Vastus! Õige Vastus Oli: ({Õige_vastus})")
             Health -= 25
 
         print(f"Hetke skoor: {score}, Hetke tervis: {Health}%\n") # väljastab iga kord hetke skoori, elu ja teeb uue rea
